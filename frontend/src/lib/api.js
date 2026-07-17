@@ -1,7 +1,11 @@
 import axios from "axios"
 
+// In production (Vercel), set VITE_API_URL to your EC2 backend URL,
+// e.g. https://api.yourdomain.com or http://your-ec2-ip:8000
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000"
+
 const api = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: API_URL,
 })
 
 export async function uploadDocument(file) {
@@ -40,11 +44,11 @@ export async function getExtraction(documentId) {
 }
 
 export function exportJsonUrl(documentId) {
-  return `http://localhost:8000/export/json/${documentId}`
+  return `${API_URL}/export/json/${documentId}`
 }
 
 export function exportExcelUrl(documentId) {
-  return `http://localhost:8000/export/excel/${documentId}`
+  return `${API_URL}/export/excel/${documentId}`
 }
 
 export async function getHistory() {

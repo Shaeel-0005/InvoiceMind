@@ -24,7 +24,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=settings.allowed_origins_list,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -36,10 +36,3 @@ app.include_router(extract_fields_router)
 app.include_router(extraction_router)
 app.include_router(export_router)
 app.include_router(documents_router)
-
-@app.get("/")
-def home():
-    return {
-        "message": "InvoiceMind AI API is running 🚀",
-        "version": settings.app_version
-    }

@@ -1,0 +1,25 @@
+# --- Backend (Python) ---
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.db
+backend/app/uploads/
+backend/.env
+*.pyc
+
+# --- Frontend (Node) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.env
+frontend/.env.local
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# --- History plugin junk (VS Code local history extension) ---
+.history/
